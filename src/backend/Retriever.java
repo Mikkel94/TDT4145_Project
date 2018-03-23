@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class Retriever {
 	
-	private Query query = new Query();
+	public static Query query = new Query();
 	
 	public static ResultSet RetrieveWorkouts(int n, int userID) {
 		String sql = String.format("SELECT * FROM WorkOut WHERE UserID=%d LIMIT %d", userID, n);
@@ -29,6 +29,15 @@ public class Retriever {
 	public static ResultSet RetrieveCenterNameFromID(int id) {
 		String sql = String.format("SELECT Name FROM Center WHERE CenterID=%d", id);
 		return Query.execute(sql);
+	}
+	
+	public static String retrieveCenterNameString(int id) throws SQLException {
+		ResultSet rs = RetrieveCenterNameFromID(id);
+		while (rs.next()) {
+			String centerName = rs.getString("Name");
+			return centerName;
+		}
+		return "";
 	}
 
 }

@@ -40,6 +40,10 @@ public class GUIController {
 	@FXML private ChoiceBox<Integer> workoutRatingChoicebox;
 	@FXML Label workoutRegisterLabel;
 	
+	@FXML TextField findCenterNameCenterIDInput;
+	@FXML TextArea centerNameOutput;
+	@FXML Label findCenterNameLabel;
+	
 	ObservableList<Integer> onetoten = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10);
 	
 	public void initialize() {
@@ -93,6 +97,20 @@ public class GUIController {
 			workoutNoteInput.setText("");
 		}
 	}
+	
+	public void getCenterName() throws SQLException {
+		String centerIDString = findCenterNameCenterIDInput.getText();
+		if (! isStringInteger(centerIDString)) {
+			findCenterNameLabel.setText("Not a valid ID");
+		} else if (centerIDString.isEmpty()) {
+			
+		} else {
+			int centerID = Integer.parseInt(centerIDString);
+			String centerName = Retriever.retrieveCenterNameString(centerID);
+			centerNameOutput.setText(centerName);
+			findCenterNameCenterIDInput.setText("");
+		}
+	}
 
 	
 	public void registerActivity() {
@@ -122,7 +140,7 @@ public class GUIController {
 		}
 	}
 	
-
+/*
 	public void getNWorkouts()
 	{
 		int n = nInput.getInt();
@@ -149,7 +167,7 @@ public class GUIController {
 		}
 		return output;
 	}
-	}
+	}*/
 
 	//TODO: Implementere metoder for � kontrollere GUIen
 
