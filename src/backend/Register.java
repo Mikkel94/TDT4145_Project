@@ -4,7 +4,7 @@ import java.sql.SQLException;;
 
 public class Register {
 	
-	private static Query query = new Query();
+	public static Query query = new Query();
 
     public static void RegisterAparatus(String name, String description) {
         String sql = String.format("INSERT INTO Aparatus(AparatusName, WorkoutDescription) VALUES('%s', '%s')", name, description);
