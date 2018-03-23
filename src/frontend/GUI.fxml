@@ -96,7 +96,7 @@
                                                 <Label layoutX="305.0" layoutY="24.0" text="Show" AnchorPane.leftAnchor="305.0" AnchorPane.topAnchor="24.0" />
                                                 <TextField fx:id="nLastWorkoutsInput" layoutX="362.0" layoutY="19.0" prefHeight="26.0" prefWidth="35.0" promptText="n" AnchorPane.leftAnchor="339.0" AnchorPane.topAnchor="20.0" />
                                                 <Label layoutX="402.0" layoutY="23.0" text="last workouts" AnchorPane.leftAnchor="377.0" AnchorPane.topAnchor="23.0" />
-                                                <Button onAction="#getNLastWorkouts" fx:id="viewnlastButton" layoutX="502.0" layoutY="20.0" mnemonicParsing="false" text="Get workouts" AnchorPane.leftAnchor="502.0" AnchorPane.topAnchor="20.0" />
+                                                <Button fx:id="viewnlastButton" layoutX="502.0" layoutY="20.0" mnemonicParsing="false" onAction="#getNLastWorkouts" text="Get workouts" AnchorPane.leftAnchor="502.0" AnchorPane.topAnchor="20.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -137,7 +137,7 @@
                                                 <TextField fx:id="activityGroupsActivityIDInput" layoutX="149.0" layoutY="103.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="60.0" />
                                                 <Label layoutX="37.0" layoutY="50.0" text="Group name:" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="24.0" />
                                                 <Label layoutX="37.0" layoutY="109.0" text="Activety ID:" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="64.0" />
-                                                <Button layoutX="209.0" layoutY="99.0" mnemonicParsing="false" text="Create" AnchorPane.topAnchor="102.0" />
+                                                <Button layoutX="209.0" layoutY="99.0" mnemonicParsing="false" onAction="#createActivityGroup" text="Create" AnchorPane.topAnchor="102.0" />
                                                 <Label fx:id="createActivityGroupLabel" layoutX="283.0" layoutY="106.0" />
                                              </children></AnchorPane>
                                     </content>
@@ -150,7 +150,7 @@
                                                 <Label layoutX="64.0" layoutY="89.0" text="Activeties in group:" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="64.0" />
                                                 <TextArea fx:id="activityGroupsOutput" layoutX="70.0" layoutY="114.0" prefHeight="200.0" prefWidth="511.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="95.0" />
                                                 <TextField fx:id="activityGroupsNameSearch" layoutX="196.0" layoutY="43.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
-                                                <Button layoutX="306.0" layoutY="20.0" mnemonicParsing="false" text="Search" />
+                                                <Button layoutX="306.0" layoutY="20.0" mnemonicParsing="false" onAction="#getActivityGroup" text="Search" />
                                              </children></AnchorPane>
                                     </content>
                                   </Tab>

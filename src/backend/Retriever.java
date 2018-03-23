@@ -21,9 +21,18 @@ public class Retriever {
 		return Query.execute(sql);
 	}
 	
-	public static ResultSet RetrieveActivites(String groupName) {
-		String sql = String.format("SELECT ActivityID FROM ActivityGroups WHERE ActivityGroup='%s'", groupName);
+	public static ResultSet RetrieveActivites(String groupName) { 
+		String sql = String.format("SELECT ActivityName FROM activities JOIN activitygroups ON activities.ActivityID = activitygroups.ActivityID WHERE ActivityGroup = '%s';", groupName);
 		return Query.execute(sql);
+	}
+	
+	public static String retrieveActivitiesString(String groupName) throws SQLException {
+		ResultSet rs = RetrieveActivites(groupName);
+		String returnString = "";
+		while (rs.next()) {
+			returnString += rs.getString("ActivityName") + "\n";
+		}
+		return returnString;
 	}
 	
 	public static ResultSet RetrieveCenterNameFromID(int id) {

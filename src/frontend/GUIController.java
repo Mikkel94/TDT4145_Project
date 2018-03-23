@@ -33,6 +33,7 @@ public class GUIController {
 	Register register = new Register();
 	Retriever retriever = new Retriever();
 
+	// register workout
 	@FXML TextField workoutUserIDInput;
 	@FXML TextField durationInput;
 	@FXML TextField workoutCenterIDInput;
@@ -41,8 +42,7 @@ public class GUIController {
 	@FXML private ChoiceBox<Integer> workoutRatingChoicebox;
 	@FXML Label workoutRegisterLabel;
 	
-
-
+	// find center name
 	@FXML TextField findCenterNameCenterIDInput;
 	@FXML TextArea centerNameOutput;
 	@FXML Label findCenterNameLabel;
@@ -51,6 +51,15 @@ public class GUIController {
 	@FXML TextField viewnlastUserIDInput;
 	@FXML TextField nLastWorkoutsInput;
 	@FXML TextArea nLastWorkoutsOutput;
+	
+	// create activity group
+	@FXML TextField activityGroupsNameInput;
+	@FXML TextField activityGroupsActivityIDInput;
+	@FXML Label createActivityGroupLabel;
+	
+	// get acitivty group
+	@FXML TextField activityGroupsNameSearch;
+	@FXML TextArea activityGroupsOutput;
 	
 	ObservableList<Integer> onetoten = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10);
 	
@@ -152,7 +161,7 @@ public class GUIController {
 	
 	public void getNLastWorkouts() {
 		System.out.println(nLastWorkoutsInput.getText());
-System.out.println(viewnlastUserIDInput.getText());
+		System.out.println(viewnlastUserIDInput.getText());
 		int n = Integer.parseInt(nLastWorkoutsInput.getText());
 		int id = Integer.parseInt(viewnlastUserIDInput.getText());
 		String out = nLastWorkoutsOutput.getText();
@@ -170,6 +179,30 @@ System.out.println(viewnlastUserIDInput.getText());
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void createActivityGroup() {
+		String acGrName = activityGroupsNameInput.getText();
+		String acIDString = activityGroupsActivityIDInput.getText();
+		if (! isStringInteger(acIDString)) {
+			createActivityGroupLabel.setText("Invalid activity ID");
+		} else if ( acGrName.isEmpty() || acIDString.isEmpty()) {
+			createActivityGroupLabel.setText("Invalid input");
+		} else {
+			int acID = Integer.parseInt(acIDString);
+			Register.RegisterActivityToGroup(acID, acGrName);
+			createActivityGroupLabel.setText("Registered");
+			System.out.println("activity registered");
+			activityGroupsNameInput.setText("");
+			activityGroupsActivityIDInput.setText("");
+		}
+	}
+	
+	public void getActivityGroup() throws SQLException {
+		String activityGroupName = activityGroupsNameSearch.getText();
+		String activitiesInGroup = Retriever.retrieveActivitiesString(activityGroupName);
+		activityGroupsOutput.setText(activitiesInGroup);
+		activityGroupsNameSearch.setText("");
 	}
 /*
 	public void getNWorkouts()
