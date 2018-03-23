@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class GUI extends Application {
 	
-	//Kj�r denne filen for � launche appen
+	//Kjoer denne filen for aa launche appen
 
     @Override
     public void start(Stage stage) throws Exception {
