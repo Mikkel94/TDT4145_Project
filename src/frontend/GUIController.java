@@ -40,6 +40,8 @@ public class GUIController {
 	@FXML private ChoiceBox<Integer> workoutRatingChoicebox;
 	@FXML Label workoutRegisterLabel;
 	
+
+
 	@FXML TextField findCenterNameCenterIDInput;
 	@FXML TextArea centerNameOutput;
 	@FXML Label findCenterNameLabel;
@@ -52,6 +54,7 @@ public class GUIController {
 		workoutRatingChoicebox.setValue(1);
 		workoutRatingChoicebox.setItems(onetoten);
 	}
+
 	
 	public void registerApparatus() {
 		String apName = apparatusNameInput.getText();
@@ -63,6 +66,7 @@ public class GUIController {
 			System.out.println("aparatus registered");
 		}
 	}
+
 	
 	public boolean isStringInteger(String string) {
 		for (int i = 0; i < string.length(); i++) {
@@ -139,7 +143,6 @@ public class GUIController {
 			actLabel.setText("Invalid input");
 		}
 	}
-	
 /*
 	public void getNWorkouts()
 	{
@@ -148,6 +151,14 @@ public class GUIController {
 		ResultSet rs = backend.retiveWorkout(n, userID);
 		Sting output = querrytxt(rs);
 		viewNLastLable.setText(output);
+	}
+
+	public void getFindActivityGroups()
+	{
+		String groupName = groupNameInput.getString();
+		ResultSet rs = backend.RetrieveActivites(groupName);
+		String output = querrytxt(rs);
+		ActivetiesInGroups.setText(output);
 	}
 
 	private String querrytxt(ResultSet rs)
