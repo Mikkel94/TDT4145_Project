@@ -26,12 +26,12 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TextField layoutX="63.0" layoutY="38.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" fx:id="apparatusNameInput"/>
+                                                <TextField fx:id="apparatusNameInput" layoutX="63.0" layoutY="38.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
                                                 <Label layoutX="49.0" layoutY="24.0" text="Apparatus Name" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="24.0" />
                                                 <Label layoutX="23.0" layoutY="64.0" prefHeight="42.0" prefWidth="74.0" text="Apparatus Description" wrapText="true" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="64.0" />
                                                 <TextArea fx:id="apparatusDescInput" layoutX="134.0" layoutY="57.0" prefHeight="135.0" prefWidth="339.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="60.0" />
-                                                <Button onAction="#registerApparatus" layoutX="406.0" layoutY="248.0" mnemonicParsing="false" text="Register" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
-                                                <Label layoutX="540.0" layoutY="289.0" />
+                                                <Button fx:id="apparatusRegisterButton" layoutX="406.0" layoutY="248.0" mnemonicParsing="false" onAction="#registerApparatus" text="Register" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
+                                                <Label fx:id="apparatusRegisterLabel" layoutX="540.0" layoutY="289.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -40,13 +40,13 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TextField layoutX="134.0" layoutY="20.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
+                                                <TextField fx:id="activityNameInput" layoutX="134.0" layoutY="20.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
                                                 <Label layoutX="23.0" layoutY="24.0" text="Activity Name" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="24.0" />
                                                 <Label layoutX="23.0" layoutY="64.0" text="Apparatus" />
                                                 <Label layoutX="23.0" layoutY="105.0" text="Activity Description" />
-                                                <TextArea layoutX="134.0" layoutY="105.0" prefHeight="135.0" prefWidth="339.0" AnchorPane.bottomAnchor="77.20000000000005" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="101.2" />
-                                                <Button layoutX="407.0" layoutY="258.0" mnemonicParsing="false" text="Register" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
-                                                <ChoiceBox layoutX="133.0" layoutY="60.0" prefWidth="150.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="60.0" />
+                                                <TextArea fx:id="activityDescInput" layoutX="134.0" layoutY="105.0" prefHeight="135.0" prefWidth="339.0" AnchorPane.bottomAnchor="77.20000000000005" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="101.2" />
+                                                <Button fx:id="activityRegisterButton" layoutX="407.0" layoutY="258.0" mnemonicParsing="false" text="Register" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
+                                                <ChoiceBox fx:id="apparatusNameChoicebox" layoutX="133.0" layoutY="60.0" prefWidth="150.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="60.0" />
                                                 <Label layoutX="540.0" layoutY="289.0" />
                                              </children>
                                           </AnchorPane>
@@ -56,19 +56,19 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TextField layoutX="105.0" layoutY="32.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
-                                                <TextField layoutX="134.0" layoutY="61.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="60.0" />
-                                                <ChoiceBox layoutX="440.0" layoutY="20.0" prefWidth="150.0" AnchorPane.leftAnchor="440.0" AnchorPane.topAnchor="20.0" />
-                                                <ChoiceBox layoutX="440.0" layoutY="60.0" prefWidth="150.0" AnchorPane.topAnchor="60.0" />
-                                                <TextField layoutX="134.0" layoutY="103.0" AnchorPane.topAnchor="101.0" />
-                                                <TextArea layoutX="142.0" layoutY="140.0" prefHeight="108.0" prefWidth="339.0" AnchorPane.bottomAnchor="79.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="140.0" />
+                                                <TextField fx:id="workoutUserIDInput" layoutX="105.0" layoutY="32.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
+                                                <TextField fx:id="durationInput" layoutX="134.0" layoutY="61.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="60.0" />
+                                                <ChoiceBox fx:id="fitnessLevelChoicebox" layoutX="440.0" layoutY="20.0" prefWidth="150.0" AnchorPane.leftAnchor="440.0" AnchorPane.topAnchor="20.0" />
+                                                <ChoiceBox fx:id="workoutRatingChoicebox" layoutX="440.0" layoutY="60.0" prefWidth="150.0" AnchorPane.topAnchor="60.0" />
+                                                <TextField fx:id="workoutCenterIDInput" layoutX="134.0" layoutY="103.0" AnchorPane.topAnchor="101.0" />
+                                                <TextArea fx:id="workoutNoteInput" layoutX="142.0" layoutY="140.0" prefHeight="108.0" prefWidth="339.0" AnchorPane.bottomAnchor="79.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="140.0" />
                                                 <Label layoutX="51.0" layoutY="24.0" text="User ID" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="24.0" />
                                                 <Label layoutX="23.0" layoutY="64.0" text="Duration" />
                                                 <Label layoutX="23.0" layoutY="105.0" text="Center ID" />
                                                 <Label layoutX="23.0" layoutY="148.0" text="Note" />
                                                 <Label layoutX="332.0" layoutY="24.0" text="My Fitness" />
                                                 <Label layoutX="332.0" layoutY="64.0" text="Workout Rating" />
-                                                <Button layoutX="414.0" layoutY="265.0" mnemonicParsing="false" text="Register" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
+                                                <Button fx:id="workoutRegisterButton" layoutX="414.0" layoutY="265.0" mnemonicParsing="false" text="Register" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
                                                 <Label layoutX="540.0" layoutY="289.0" />
                                              </children>
                                           </AnchorPane>
@@ -90,13 +90,13 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TextField layoutX="88.0" layoutY="27.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
-                                                <TextArea editable="false" layoutX="134.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="60.0" />
+                                                <TextField fx:id="viewnlastUserIDInput" layoutX="88.0" layoutY="27.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
+                                                <TextArea fx:id="nLastWorkoutsOutput" editable="false" layoutX="134.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="60.0" />
                                                 <Label layoutX="56.0" layoutY="24.0" text="User ID" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="24.0" />
                                                 <Label layoutX="305.0" layoutY="24.0" text="Show" AnchorPane.leftAnchor="305.0" AnchorPane.topAnchor="24.0" />
-                                                <TextField layoutX="362.0" layoutY="19.0" prefHeight="26.0" prefWidth="35.0" promptText="n" AnchorPane.leftAnchor="339.0" AnchorPane.topAnchor="20.0" />
+                                                <TextField fx:id="nLastWorkoutsInput" layoutX="362.0" layoutY="19.0" prefHeight="26.0" prefWidth="35.0" promptText="n" AnchorPane.leftAnchor="339.0" AnchorPane.topAnchor="20.0" />
                                                 <Label layoutX="402.0" layoutY="23.0" text="last workouts" AnchorPane.leftAnchor="377.0" AnchorPane.topAnchor="23.0" />
-                                                <Button layoutX="502.0" layoutY="20.0" mnemonicParsing="false" text="Get workouts" AnchorPane.leftAnchor="502.0" AnchorPane.topAnchor="20.0" />
+                                                <Button fx:id="viewnlastButton" layoutX="502.0" layoutY="20.0" mnemonicParsing="false" text="Get workouts" AnchorPane.leftAnchor="502.0" AnchorPane.topAnchor="20.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -105,14 +105,14 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TextField layoutX="88.0" layoutY="27.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
-                                                <TextArea editable="false" layoutX="134.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="60.0" />
+                                                <TextField fx:id="viewTimeperiodUserIDInput" layoutX="88.0" layoutY="27.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
+                                                <TextArea fx:id="viewTimeperiodWorkoutsOutput" editable="false" layoutX="134.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="60.0" />
                                                 <Label layoutX="56.0" layoutY="24.0" text="User ID" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="24.0" />
                                                 <Label layoutX="305.0" layoutY="24.0" text="Show from" AnchorPane.leftAnchor="305.0" AnchorPane.topAnchor="24.0" />
-                                                <TextField layoutX="362.0" layoutY="19.0" prefHeight="26.0" prefWidth="40.0" AnchorPane.leftAnchor="367.0" AnchorPane.topAnchor="20.0" />
+                                                <TextField fx:id="viewTimeperiodFromInput" layoutX="362.0" layoutY="19.0" prefHeight="26.0" prefWidth="40.0" AnchorPane.leftAnchor="367.0" AnchorPane.topAnchor="20.0" />
                                                 <Label layoutX="402.0" layoutY="23.0" text="to" AnchorPane.leftAnchor="411.0" AnchorPane.topAnchor="23.0" />
-                                                <Button layoutX="502.0" layoutY="20.0" mnemonicParsing="false" text="Get workouts" AnchorPane.leftAnchor="502.0" AnchorPane.topAnchor="20.0" />
-                                                <TextField layoutX="428.0" layoutY="20.0" prefHeight="26.0" prefWidth="40.0" AnchorPane.leftAnchor="428.0" AnchorPane.topAnchor="20.0" />
+                                                <Button fx:id="viewTimeperiodButton" layoutX="502.0" layoutY="20.0" mnemonicParsing="false" text="Get workouts" AnchorPane.leftAnchor="502.0" AnchorPane.topAnchor="20.0" />
+                                                <TextField fx:id="viewTimeperiodToInput" layoutX="428.0" layoutY="20.0" prefHeight="26.0" prefWidth="40.0" AnchorPane.leftAnchor="428.0" AnchorPane.topAnchor="20.0" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -149,11 +149,11 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TextField layoutX="135.0" layoutY="28.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
-                              <TextArea editable="false" layoutX="134.0" layoutY="72.0" prefHeight="82.0" prefWidth="269.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="60.0" />
+                              <TextField fx:id="findCenterNameCenterIDInput" layoutX="135.0" layoutY="28.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
+                              <TextArea fx:id="centerNameOutput" editable="false" layoutX="134.0" layoutY="72.0" prefHeight="82.0" prefWidth="269.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="60.0" />
                               <Label layoutX="48.0" layoutY="24.0" text="Center ID" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="24.0" />
                               <Label layoutX="23.0" layoutY="60.0" text="Center Name" AnchorPane.leftAnchor="23.0" />
-                              <Button layoutX="294.0" layoutY="20.0" mnemonicParsing="false" text="Get Center Name" />
+                              <Button fx:id="centerNameButton" layoutX="294.0" layoutY="20.0" mnemonicParsing="false" text="Get Center Name" />
                            </children>
                         </AnchorPane>
                     </content>

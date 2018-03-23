@@ -21,9 +21,8 @@ public class GUIController {
 	public void registerApparatus() {
 		String apName = apparatusNameInput.getText();
 		String apDesc = apparatusDescInput.getText();
-		if ( apName == "" || apDesc == "") {
+		if ( apName.isEmpty() || apDesc.isEmpty()) {
 			apparatusRegisterLabel.setText("Invalid input");
-			System.out.println("Invalid input");
 		} else {
 			Register.RegisterAparatus(apName, apDesc);
 			System.out.println("aparatus registered");
