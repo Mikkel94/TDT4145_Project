@@ -23,8 +23,10 @@ public class GUIController {
 		String apDesc = apparatusDescInput.getText();
 		if ( apName == "" || apDesc == "") {
 			apparatusRegisterLabel.setText("Invalid input");
+			System.out.println("Invalid input");
 		} else {
 			Register.RegisterAparatus(apName, apDesc);
+			System.out.println("aparatus registered");
 		}
 	}
 
