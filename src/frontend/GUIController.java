@@ -8,10 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import backend.*;
@@ -51,6 +53,12 @@ public class GUIController {
 	@FXML TextField viewnlastUserIDInput;
 	@FXML TextField nLastWorkoutsInput;
 	@FXML TextArea nLastWorkoutsOutput;
+	
+	// get timeperiod workouts
+	@FXML TextField viewTimeperiodUserIDInput;
+	@FXML TextField viewTimeperiodFromInput;
+	@FXML TextField viewTimeperiodToInput;
+	@FXML TextArea viewTimeperiodWorkoutsOutput;
 	
 	ObservableList<Integer> onetoten = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10);
 	
@@ -151,11 +159,8 @@ public class GUIController {
 	}
 	
 	public void getNLastWorkouts() {
-		System.out.println(nLastWorkoutsInput.getText());
-System.out.println(viewnlastUserIDInput.getText());
 		int n = Integer.parseInt(nLastWorkoutsInput.getText());
 		int id = Integer.parseInt(viewnlastUserIDInput.getText());
-		String out = nLastWorkoutsOutput.getText();
 		
 		String finalString = "";
 		
@@ -164,6 +169,39 @@ System.out.println(viewnlastUserIDInput.getText());
 			while (rs.next()) {
 				finalString += String.format("WorkoutID: %d, UserID: %d, Duration in minutes: %d, Fitness: %d, WorkoutRating: %d, Workoutnote: %s, CenterID: %d \n",
 						rs.getInt(1), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getInt(8));
+			}
+			nLastWorkoutsOutput.setText(finalString);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void getWorkoutsInIntervals() {
+		int id = Integer.parseInt(viewTimeperiodUserIDInput.getText());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		String tsString1 = viewTimeperiodFromInput.getText() + "00:00:00";
+		String tsString2 = viewTimeperiodToInput.getText() + "00:00:00";
+	    Date parsedDate1;
+	    Date parsedDate2;
+	    Timestamp timestamp1 = null;
+	    Timestamp timestamp2 = null;
+		try {
+			parsedDate1 = (Date) dateFormat.parse(tsString1);
+			parsedDate2 = (Date) dateFormat.parse(tsString2);
+			timestamp1 = new Timestamp(parsedDate1.getTime());
+			timestamp2 = new Timestamp(parsedDate2.getTime());
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		ResultSet rs = Retriever.RetrieveWorkouts(id, timestamp1, timestamp2);
+		String finalString = "";
+		try {
+			while (rs.next()) {
+				finalString += String.format("WorkoutID: %d, UserID: %d, Duration in minutes: %d, Fitness: %d, WorkoutRating: %d, Workoutnote: %s, CenterID: %d \n",
+						rs.getInt(1), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getInt(8));
+			
 			}
 			nLastWorkoutsOutput.setText(finalString);
 		} catch (SQLException e) {

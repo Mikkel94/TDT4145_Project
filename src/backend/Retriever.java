@@ -5,6 +5,9 @@ import java.sql.*;
 public class Retriever {
 	
 	public static Query query = new Query();
+	public Retriever() {
+        DBConnector.connect();
+    }
 	
 	public static ResultSet RetrieveWorkouts(int n, int userID) {
 		String sql = String.format("SELECT * FROM WorkOut WHERE UserID=%d LIMIT %d", userID, n);
@@ -12,7 +15,15 @@ public class Retriever {
 	}
 	
 	public static ResultSet RetrieveWorkouts(int userID, Timestamp start, Timestamp stop) {
-		String sql = String.format("SELECT * FROM Workout WHERE TimeStamp>%t AND TimeStamp<%t AND UserID=%d", start, stop, userID);
+		String sql = String.format("SELECT * FROM Workout WHERE TimeStamp>? AND TimeStamp<? AND UserID=?");
+		try {
+			PreparedStatement stmt = DBConnector.conn.prepareStatement(sql);
+			stmt.setTimestamp(1, start);
+			stmt.setTimestamp(2, stop);
+			stmt.setInt(3, userID);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return Query.execute(sql);
 	}
 	
