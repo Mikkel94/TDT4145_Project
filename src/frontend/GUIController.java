@@ -147,12 +147,20 @@ public class GUIController {
 		String actDesc = activityDescInput.getText();
 		if (apName.isEmpty() && !actDesc.isEmpty() && !actName.isEmpty()) {
 			Register.RegisterActivity(actName, actDesc);
+			appNameIn.setText("");
+			activityNameInput.setText("");
+			activityDescInput.setText("");
+			actLabel.setText("Registered");
 		} else if (!apName.isEmpty() && !actDesc.isEmpty() && !actName.isEmpty()) {
 			for (AparatusType at : aparatuses) {
 				if (apName.equals(at.getName())) {
 					Register.RegisterActivity(actName, at.getId(), actDesc);
+					appNameIn.setText("");
+					activityNameInput.setText("");
+					activityDescInput.setText("");
+					actLabel.setText("Registered");
+					break;
 				}
-				break;
 			}
 		} else {
 			actLabel.setText("Invalid input");
