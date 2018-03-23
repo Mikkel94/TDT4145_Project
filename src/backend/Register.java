@@ -1,7 +1,5 @@
 package backend;
 
-import java.sql.SQLException;;
-
 public class Register {
 	
 	public static Query query = new Query();

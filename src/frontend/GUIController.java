@@ -31,6 +31,7 @@ public class GUIController {
 	@FXML TextArea activityDescInput;
 	@FXML TextField appNameIn;
 	@FXML Label actLabel;
+	@FXML TextArea viewRegisteredApparatuses;
 	
 	Register register = new Register();
 	Retriever retriever = new Retriever();
@@ -64,6 +65,7 @@ public class GUIController {
 	@FXML TextField activityGroupsNameInput;
 	@FXML TextField activityGroupsActivityIDInput;
 	@FXML Label createActivityGroupLabel;
+	@FXML TextArea activityIDToNameOutput;
 	
 	// get acitivty group
 	@FXML TextField activityGroupsNameSearch;
@@ -87,6 +89,9 @@ public class GUIController {
 		} else {
 			Register.RegisterAparatus(apName, apDesc);
 			System.out.println("aparatus registered");
+			apparatusRegisterLabel.setText("Registered");
+			apparatusNameInput.setText("");
+			apparatusDescInput.setText("");
 		}
 	}
 
@@ -175,6 +180,11 @@ public class GUIController {
 		}
 	}
 	
+	public void viewRegisteredApparatuses() throws SQLException {
+		String allApparatuses = Retriever.getRegisteredApparatuses();
+		viewRegisteredApparatuses.setText(allApparatuses);
+	}
+	
 	public void getNLastWorkouts() {
 		System.out.println(nLastWorkoutsInput.getText());
 		System.out.println(viewnlastUserIDInput.getText());
@@ -250,6 +260,11 @@ public class GUIController {
 		String activitiesInGroup = Retriever.retrieveActivitiesString(activityGroupName);
 		activityGroupsOutput.setText(activitiesInGroup);
 		activityGroupsNameSearch.setText("");
+	}
+	
+	public void getRegisteredActivities() throws SQLException {
+		String allActivities = Retriever.getRegisteredActivities();
+		activityIDToNameOutput.setText(allActivities);
 	}
 /*
 	public void getNWorkouts()

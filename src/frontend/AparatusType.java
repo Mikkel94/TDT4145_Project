@@ -3,6 +3,7 @@ package frontend;
 public class AparatusType {
 	
 	private String name;
+	@SuppressWarnings("unused")
 	private String description;
 	private int id;
 	
