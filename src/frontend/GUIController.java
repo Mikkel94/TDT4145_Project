@@ -151,6 +151,8 @@ public class GUIController {
 	}
 	
 	public void getNLastWorkouts() {
+		System.out.println(nLastWorkoutsInput.getText());
+System.out.println(viewnlastUserIDInput.getText());
 		int n = Integer.parseInt(nLastWorkoutsInput.getText());
 		int id = Integer.parseInt(viewnlastUserIDInput.getText());
 		String out = nLastWorkoutsOutput.getText();
@@ -160,8 +162,8 @@ public class GUIController {
 		ResultSet rs = Retriever.RetrieveWorkouts(n, id);
 		try {
 			while (rs.next()) {
-				finalString += String.format("WorkoutID: %d, Timestamp: %t, UserID: %d, Duration in minutes: %d, Fitness: %d, WorkoutRating: %d, Workoutnote: %s, CenterID: %d \n",
-						rs.getInt(1), rs.getTimestamp(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getInt(8));
+				finalString += String.format("WorkoutID: %d, UserID: %d, Duration in minutes: %d, Fitness: %d, WorkoutRating: %d, Workoutnote: %s, CenterID: %d \n",
+						rs.getInt(1), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getInt(8));
 			}
 			nLastWorkoutsOutput.setText(finalString);
 		} catch (SQLException e) {
@@ -171,22 +173,31 @@ public class GUIController {
 	}
 /*
 	public void getNWorkouts()
+
+
+	// henter nlast workouts og putter de i texfelt i GUI
+	public void getNLastWorkouts()
 	{
+		//må kobles til GUI
 		int n = nInput.getInt();
 		int userID = UserIdInput.getInt();
+
 		ResultSet rs = backend.retiveWorkout(n, userID);
 		Sting output = querrytxt(rs);
 		viewNLastLable.setText(output);
 	}
 
+	// Samme som over mend Aktiviteter som er gruppert
 	public void getFindActivityGroups()
 	{
+		//må kobles til GUI
 		String groupName = groupNameInput.getString();
+
 		ResultSet rs = backend.RetrieveActivites(groupName);
 		String output = querrytxt(rs);
 		ActivetiesInGroups.setText(output);
 	}
-
+	// Tar et result set og produserer en printbar streng. 
 	private String querrytxt(ResultSet rs)
 	{
 		String output = "";
@@ -205,7 +216,5 @@ public class GUIController {
 		return output;
 	}
 	}*/
-
-	//TODO: Implementere metoder for � kontrollere GUIen
 
 }
