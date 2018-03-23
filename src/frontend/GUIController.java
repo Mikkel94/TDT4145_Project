@@ -4,17 +4,21 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ChoiceBox;
 
 import backend.Register;
 
 public class GUIController {
 	
+	// Register Apparatus
 	@FXML TextField apparatusNameInput;
 	@FXML TextArea apparatusDescInput;
 	@FXML Label apparatusRegisterLabel;
-	/*
-	@FXML TextField 
-	@FXML TextField*/
+	
+	// register Activity
+	@FXML TextField activityNameInput;
+	@FXML TextArea activityDescInput;
+	@FXML ChoiceBox<AparatusType> apparatusNameChoicebox;
 	
 	Register register;
 	
@@ -29,6 +33,8 @@ public class GUIController {
 		}
 	}
 
-	//TODO: Implementere metoder for � kontrollere GUIen
+	public void registerActivity() {
+		
+	}
 
 }

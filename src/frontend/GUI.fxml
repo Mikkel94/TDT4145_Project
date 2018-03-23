@@ -45,7 +45,7 @@
                                                 <Label layoutX="23.0" layoutY="64.0" text="Apparatus" />
                                                 <Label layoutX="23.0" layoutY="105.0" text="Activity Description" />
                                                 <TextArea fx:id="activityDescInput" layoutX="134.0" layoutY="105.0" prefHeight="135.0" prefWidth="339.0" AnchorPane.bottomAnchor="77.20000000000005" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="101.2" />
-                                                <Button fx:id="activityRegisterButton" layoutX="407.0" layoutY="258.0" mnemonicParsing="false" text="Register" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
+                                                <Button onAction="#registerActivity" fx:id="activityRegisterButton" layoutX="407.0" layoutY="258.0" mnemonicParsing="false" text="Register" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
                                                 <ChoiceBox fx:id="apparatusNameChoicebox" layoutX="133.0" layoutY="60.0" prefWidth="150.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="60.0" />
                                                 <Label layoutX="540.0" layoutY="289.0" />
                                              </children>
