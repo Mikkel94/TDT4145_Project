@@ -143,24 +143,32 @@ public class GUIController {
 			actLabel.setText("Invalid input");
 		}
 	}
-/*
-	public void getNWorkouts()
+
+
+	/*
+	// henter nlast workouts og putter de i texfelt i GUI
+	public void getNLastWorkouts()
 	{
+		//må kobles til GUI
 		int n = nInput.getInt();
 		int userID = UserIdInput.getInt();
+
 		ResultSet rs = backend.retiveWorkout(n, userID);
 		Sting output = querrytxt(rs);
 		viewNLastLable.setText(output);
 	}
 
+	// Samme som over mend Aktiviteter som er gruppert
 	public void getFindActivityGroups()
 	{
+		//må kobles til GUI
 		String groupName = groupNameInput.getString();
+
 		ResultSet rs = backend.RetrieveActivites(groupName);
 		String output = querrytxt(rs);
 		ActivetiesInGroups.setText(output);
 	}
-
+	// Tar et result set og produserer en printbar streng. 
 	private String querrytxt(ResultSet rs)
 	{
 		String output = "";
@@ -179,7 +187,5 @@ public class GUIController {
 		return output;
 	}
 	}*/
-
-	//TODO: Implementere metoder for � kontrollere GUIen
 
 }
