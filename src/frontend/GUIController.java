@@ -45,9 +45,11 @@ public class GUIController {
 		String output = "";
 		ResultSetMetaData rsmeta = rs.getMetaData();
 		int n = rsmeta.getColumnCount();
+		int i = 1;
 		while (rs.next())
 		{
-			for(int i = 1; i <=n; i++)
+			output += intToString(i) + ": ";
+			for(i = 1; i <=n; i++)
 			{
 				output += rsmd.getColumnName(i) + ": " + fs.getsting(i) + ", "; ;
 			}
