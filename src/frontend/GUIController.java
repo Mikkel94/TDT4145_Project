@@ -88,6 +88,9 @@ public class GUIController {
 		} else {
 			Register.RegisterAparatus(apName, apDesc);
 			System.out.println("aparatus registered");
+			apparatusRegisterLabel.setText("Registered");
+			apparatusNameInput.setText("");
+			apparatusDescInput.setText("");
 		}
 	}
 
