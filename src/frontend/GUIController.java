@@ -9,8 +9,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import backend.Register;
+import backend.Retriever;
 
 public class GUIController {
 	
@@ -25,6 +27,10 @@ public class GUIController {
 	@FXML private ChoiceBox<Integer> fitnessLevelChoicebox;
 	@FXML private ChoiceBox<Integer> workoutRatingChoicebox;
 	@FXML Label workoutRegisterLabel;
+	
+	@FXML TextField findCenterNameCenterIDInput;
+	@FXML TextArea centerNameOutput;
+	@FXML Label findCenterNameLabel;
 	
 	ObservableList<Integer> onetoten = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10);
 	
@@ -77,6 +83,20 @@ public class GUIController {
 			durationInput.setText("");
 			workoutCenterIDInput.setText("");
 			workoutNoteInput.setText("");
+		}
+	}
+	
+	public void getCenterName() throws SQLException {
+		String centerIDString = findCenterNameCenterIDInput.getText();
+		if (! isStringInteger(centerIDString)) {
+			findCenterNameLabel.setText("Not a valid ID");
+		} else if (centerIDString.isEmpty()) {
+			
+		} else {
+			int centerID = Integer.parseInt(centerIDString);
+			String centerName = Retriever.retrieveCenterNameString(centerID);
+			centerNameOutput.setText(centerName);
+			findCenterNameCenterIDInput.setText("");
 		}
 	}
 
