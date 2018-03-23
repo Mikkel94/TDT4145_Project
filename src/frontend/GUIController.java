@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import backend.*;
@@ -45,6 +46,11 @@ public class GUIController {
 	@FXML TextField findCenterNameCenterIDInput;
 	@FXML TextArea centerNameOutput;
 	@FXML Label findCenterNameLabel;
+	
+	// get n last workouts
+	@FXML TextField viewnlastUserIDInput;
+	@FXML TextField nLastWorkoutsInput;
+	@FXML TextArea nLastWorkoutsOutput;
 	
 	ObservableList<Integer> onetoten = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10);
 	
@@ -142,6 +148,26 @@ public class GUIController {
 		} else {
 			actLabel.setText("Invalid input");
 		}
+	}
+	
+	public void getNLastWorkouts() {
+		int n = Integer.parseInt(nLastWorkoutsInput.getText());
+		int id = Integer.parseInt(viewnlastUserIDInput.getText());
+		String out = nLastWorkoutsOutput.getText();
+		
+		String finalString = "";
+		
+		ResultSet rs = Retriever.RetrieveWorkouts(n, id);
+		try {
+			while (rs.next()) {
+				finalString += String.format("WorkoutID: %d, Timestamp: %t, UserID: %d, Duration in minutes: %d, Fitness: %d, WorkoutRating: %d, Workoutnote: %s, CenterID: %d \n",
+						rs.getInt(1), rs.getTimestamp(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getInt(8));
+			}
+			nLastWorkoutsOutput.setText(finalString);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 /*
 	public void getNWorkouts()

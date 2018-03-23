@@ -96,7 +96,7 @@
                                                 <Label layoutX="305.0" layoutY="24.0" text="Show" AnchorPane.leftAnchor="305.0" AnchorPane.topAnchor="24.0" />
                                                 <TextField fx:id="nLastWorkoutsInput" layoutX="362.0" layoutY="19.0" prefHeight="26.0" prefWidth="35.0" promptText="n" AnchorPane.leftAnchor="339.0" AnchorPane.topAnchor="20.0" />
                                                 <Label layoutX="402.0" layoutY="23.0" text="last workouts" AnchorPane.leftAnchor="377.0" AnchorPane.topAnchor="23.0" />
-                                                <Button fx:id="viewnlastButton" layoutX="502.0" layoutY="20.0" mnemonicParsing="false" text="Get workouts" AnchorPane.leftAnchor="502.0" AnchorPane.topAnchor="20.0" />
+                                                <Button onAction="#getNLastWorkouts" fx:id="viewnlastButton" layoutX="502.0" layoutY="20.0" mnemonicParsing="false" text="Get workouts" AnchorPane.leftAnchor="502.0" AnchorPane.topAnchor="20.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>
