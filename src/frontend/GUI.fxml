@@ -29,7 +29,7 @@
                                                 <TextField fx:id="apparatusNameInput" layoutX="63.0" layoutY="38.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="20.0" />
                                                 <Label layoutX="49.0" layoutY="24.0" text="Apparatus Name" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="24.0" />
                                                 <Label layoutX="23.0" layoutY="64.0" prefHeight="42.0" prefWidth="74.0" text="Apparatus Description" wrapText="true" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="64.0" />
-                                                <TextArea fx:id="apparatusDescInput" layoutX="134.0" layoutY="57.0" prefHeight="135.0" prefWidth="339.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="60.0" />
+                                                <TextArea fx:id="apparatusDescInput" layoutX="134.0" layoutY="57.0" prefHeight="135.0" prefWidth="339.0" wrapText="true" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="60.0" />
                                                 <Button fx:id="apparatusRegisterButton" layoutX="406.0" layoutY="248.0" mnemonicParsing="false" onAction="#registerApparatus" text="Register" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
                                                 <Label fx:id="apparatusRegisterLabel" layoutX="540.0" layoutY="289.0" />
                                              </children>
@@ -44,10 +44,12 @@
                                                 <Label layoutX="23.0" layoutY="24.0" text="Activity Name" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="24.0" />
                                                 <Label layoutX="23.0" layoutY="64.0" text="Apparatus" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="64.0" />
                                                 <Label layoutX="23.0" layoutY="105.0" text="Activity Description" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="105.0" />
-                                                <TextArea fx:id="activityDescInput" layoutX="134.0" layoutY="105.0" prefHeight="135.0" prefWidth="339.0" AnchorPane.bottomAnchor="77.20000000000005" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="101.2" />
-                                                <Button fx:id="activityRegisterButton" layoutX="407.0" layoutY="258.0" mnemonicParsing="false" onAction="#registerActivity" text="Register" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
+                                                <TextArea fx:id="activityDescInput" layoutX="134.0" layoutY="101.0" prefHeight="162.0" prefWidth="150.0" wrapText="true" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="356.0" AnchorPane.topAnchor="101.0" />
+                                                <Button fx:id="activityRegisterButton" layoutX="209.0" layoutY="276.0" mnemonicParsing="false" onAction="#registerActivity" text="Register" AnchorPane.bottomAnchor="38.39999999999998" AnchorPane.rightAnchor="371.8" />
                                                 <TextField fx:id="appNameIn" layoutX="133.0" layoutY="60.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="60.0" />
                                                 <Label fx:id="actLabel" layoutX="540.0" layoutY="289.0" />
+                                                <Button layoutX="320.0" layoutY="60.0" mnemonicParsing="false" onAction="#viewRegisteredApparatuses" text="View Registered Apparatuses" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="60.0" />
+                                                <TextArea fx:id="viewRegisteredApparatuses" disable="true" editable="false" layoutX="320.0" layoutY="101.0" prefHeight="161.0" prefWidth="174.0" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="101.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -61,7 +63,7 @@
                                                 <ChoiceBox fx:id="fitnessLevelChoicebox" layoutX="440.0" layoutY="20.0" prefWidth="150.0" AnchorPane.leftAnchor="440.0" AnchorPane.topAnchor="20.0" />
                                                 <ChoiceBox fx:id="workoutRatingChoicebox" layoutX="440.0" layoutY="60.0" prefWidth="150.0" AnchorPane.topAnchor="60.0" />
                                                 <TextField fx:id="workoutCenterIDInput" layoutX="134.0" layoutY="103.0" AnchorPane.topAnchor="101.0" />
-                                                <TextArea fx:id="workoutNoteInput" layoutX="142.0" layoutY="140.0" prefHeight="108.0" prefWidth="339.0" AnchorPane.bottomAnchor="79.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="140.0" />
+                                                <TextArea fx:id="workoutNoteInput" layoutX="142.0" layoutY="140.0" prefHeight="108.0" prefWidth="339.0" wrapText="true" AnchorPane.bottomAnchor="79.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="140.0" />
                                                 <Label layoutX="51.0" layoutY="24.0" text="User ID" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="24.0" />
                                                 <Label layoutX="23.0" layoutY="64.0" text="Duration" />
                                                 <Label layoutX="23.0" layoutY="105.0" text="Center ID" />

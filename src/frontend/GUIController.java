@@ -31,6 +31,7 @@ public class GUIController {
 	@FXML TextArea activityDescInput;
 	@FXML TextField appNameIn;
 	@FXML Label actLabel;
+	@FXML TextArea viewRegisteredApparatuses;
 	
 	Register register = new Register();
 	Retriever retriever = new Retriever();
@@ -177,6 +178,11 @@ public class GUIController {
 		} else {
 			actLabel.setText("Invalid input");
 		}
+	}
+	
+	public void viewRegisteredApparatuses() throws SQLException {
+		String allApparatuses = Retriever.getRegisteredApparatuses();
+		viewRegisteredApparatuses.setText(allApparatuses);
 	}
 	
 	public void getNLastWorkouts() {

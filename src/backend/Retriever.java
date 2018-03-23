@@ -42,6 +42,16 @@ public class Retriever {
 		return returnString;
 	}
 	
+	public static String getRegisteredApparatuses() throws SQLException {
+		String sql = String.format("SELECT * FROM aparatus;");
+		ResultSet rs = Query.execute(sql);
+		String returnString = "";
+		while (rs.next()) {
+			returnString += rs.getString("AparatusID") + ": " + rs.getString("AparatusName") + "\n";
+		}
+		return returnString;
+	}
+	
 	public static ResultSet RetrieveActivites(String groupName) { 
 		String sql = String.format("SELECT ActivityName FROM activities JOIN activitygroups ON activities.ActivityID = activitygroups.ActivityID WHERE ActivityGroup = '%s';", groupName);
 		return Query.execute(sql);
