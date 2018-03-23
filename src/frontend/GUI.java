@@ -1,4 +1,4 @@
-package backend;
+package frontend;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class GUI extends Application {
 	
-	//Kjør denne filen for å launche appen
+	//Kjï¿½r denne filen for ï¿½ launche appen
 
     @Override
     public void start(Stage stage) throws Exception {
