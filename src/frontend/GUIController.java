@@ -64,6 +64,7 @@ public class GUIController {
 	@FXML TextField activityGroupsNameInput;
 	@FXML TextField activityGroupsActivityIDInput;
 	@FXML Label createActivityGroupLabel;
+	@FXML TextArea activityIDToNameOutput;
 	
 	// get acitivty group
 	@FXML TextField activityGroupsNameSearch;
@@ -250,6 +251,11 @@ public class GUIController {
 		String activitiesInGroup = Retriever.retrieveActivitiesString(activityGroupName);
 		activityGroupsOutput.setText(activitiesInGroup);
 		activityGroupsNameSearch.setText("");
+	}
+	
+	public void getRegisteredActivities() throws SQLException {
+		String allActivities = Retriever.getRegisteredActivities();
+		activityIDToNameOutput.setText(allActivities);
 	}
 /*
 	public void getNWorkouts()
