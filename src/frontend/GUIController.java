@@ -4,16 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import backend.*;
@@ -57,8 +55,8 @@ public class GUIController {
 	
 	// get timeperiod workouts
 	@FXML TextField viewTimeperiodUserIDInput;
-	@FXML TextField viewTimeperiodFromInput;
-	@FXML TextField viewTimeperiodToInput;
+	@FXML DatePicker viewTimeperiodFromInput;
+	@FXML DatePicker viewTimeperiodToInput;
 	@FXML TextArea viewTimeperiodWorkoutsOutput;
 
 	// create activity group
@@ -205,7 +203,7 @@ public class GUIController {
 		}
 		
 	}
-	
+	/*
 	public void getWorkoutsInIntervals() {
 		int id = Integer.parseInt(viewTimeperiodUserIDInput.getText());
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -236,6 +234,22 @@ public class GUIController {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	*/
+	
+	public void getWorkoutsInIntervals() throws SQLException {
+		String userIDString = viewTimeperiodUserIDInput.getText();
+		if (! isStringInteger(userIDString) || userIDString.isEmpty()) {
+			
+		} else {
+			int userID = Integer.parseInt(userIDString);
+			LocalDate fromDate = viewTimeperiodFromInput.getValue();
+			String fromString = fromDate.toString();
+			LocalDate toDate = viewTimeperiodToInput.getValue();
+			String toString = toDate.toString();
+			String output = Retriever.retrieveWorkoutsString(userID, fromString, toString);
+			viewTimeperiodWorkoutsOutput.setText(output);
+		};
 	}
 		
 	public void createActivityGroup() {

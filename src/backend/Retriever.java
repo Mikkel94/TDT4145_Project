@@ -14,17 +14,19 @@ public class Retriever {
 		return Query.execute(sql);
 	}
 	
-	public static ResultSet RetrieveWorkouts(int userID, Timestamp start, Timestamp stop) {
-		String sql = String.format("SELECT * FROM Workout WHERE TimeStamp>? AND TimeStamp<? AND UserID=?");
-		try {
-			PreparedStatement stmt = DBConnector.conn.prepareStatement(sql);
-			stmt.setTimestamp(1, start);
-			stmt.setTimestamp(2, stop);
-			stmt.setInt(3, userID);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public static ResultSet RetrieveWorkouts(int userID, String start, String stop) {
+		String sql = String.format("SELECT * FROM Workout WHERE TimeStamp>TIMESTAMP(\"%s\") AND TimeStamp<TIMESTAMP(\"%s\") AND UserID=%d", start, stop, userID);
 		return Query.execute(sql);
+	}
+	
+	public static String retrieveWorkoutsString(int userID, String start, String stop) throws SQLException {
+		ResultSet rs = RetrieveWorkouts(userID,start,stop);
+		String finalString = "";
+		while (rs.next()) {
+			finalString += String.format("WorkoutID: %d, UserID: %d, Duration in minutes: %d, Fitness: %d, WorkoutRating: %d, Workoutnote: %s, CenterID: %d \n",
+					rs.getInt(1), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getInt(8));
+		}
+		return finalString;
 	}
 	
 	public static ResultSet RetrieveAparatuses() {
